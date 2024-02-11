@@ -2,7 +2,6 @@ package com.example;
 
 import com.example.evaluation.Student;
 import com.example.evaluation.Teacher;
-
 import java.util.List;
 
 public class GradeEvaluator {
@@ -28,6 +27,16 @@ public class GradeEvaluator {
         System.out.println(student.getGrades("maths"));
         System.out.println(student.getFinalGrade("english"));
         System.out.println(student.getFinalGrades());
-    }
 
+        StudentsFileReader reader = new StudentsFileReader();
+        reader.readFile();
+
+        CsvReader csvReader = new CsvReader();
+        List<Student> studentsFromCsv = csvReader.getStudentsFromCsv();
+        System.out.println("Students list from csv::");
+        for (Student st: studentsFromCsv) {
+            System.out.println(st.getFullName());
+        }
+
+    }
 }
